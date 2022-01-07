@@ -14,7 +14,7 @@ public class BossScript : MonoBehaviour
     public GameObject deathParticles;
     public GameObject ragdoll;
 
-    private bool leathal = false;
+    public bool leathal = false;
 
     void Update()
     {

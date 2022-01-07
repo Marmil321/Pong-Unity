@@ -5,10 +5,11 @@ using UnityEngine;
 public class Paddle : MonoBehaviour
 {
     public float speed;
+    [SerializeField] string player;
     
     void Update()
     {
-        float verMove = Input.GetAxisRaw("Vertical");
+        float verMove = Input.GetAxisRaw(player);
 
         transform.position += new Vector3(0, verMove) * speed * Time.deltaTime ;
 

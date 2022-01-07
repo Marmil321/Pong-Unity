@@ -113,7 +113,7 @@ public class BossAbilitys : MonoBehaviour
 
     }
 
-    void ActivateGhostBall()
+    /*void ActivateGhostBall()
     {
         charging = true;
     }
@@ -132,12 +132,12 @@ public class BossAbilitys : MonoBehaviour
         circle.GetComponent<BallScripts>().MoveBall(new Vector2(-1,Random.Range(-5,5)));
         circle.AddComponent<DestroyOnCollison>();
 
-    }
+    }*/
     void Charge()
     {
         if(charging)
         {        
-            if (cc.lastHit)
+            if (cc.lastHit && !GetComponent<BossScript>().leathal)
             {
                 Color newColor = new Color(
                 Random.value,
@@ -150,7 +150,7 @@ public class BossAbilitys : MonoBehaviour
             if (!cc.lastHit)
             {
                 charging = false;
-                GhostBall();
+                //GhostBall();
             }
         }
         else
@@ -174,8 +174,6 @@ public class BossAbilitys : MonoBehaviour
     void SelectAbility()
     {
         doAbility = Random.Range(0, 3);
-        print(doAbility);
-        doAbility = 2;
 
         switch (doAbility)
         {
@@ -190,8 +188,8 @@ public class BossAbilitys : MonoBehaviour
                 return;
             case 2:
                 print("2");
-                ActivateGhostBall(); //Error when active while win?
-                StartCoroutine(AbilityCooldowns(8.5f));
+                //ActivateGhostBall(); //Error when active while win?
+                StartCoroutine(AbilityCooldowns(5f));
                 return;
             case 3:
                 print("3");
